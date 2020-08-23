@@ -1,6 +1,8 @@
 # Predict Future Sales
 
-Final project for course: [How to Win a Data Science Competition: Learn from Top Kagglers](https://www.coursera.org/learn/competitive-data-science) -- Kaggle [competition](https://www.kaggle.com/c/competitive-data-science-predict-future-sales).
+Final project for course: [How to Win a Data Science Competition: Learn from Top Kagglers](https://www.coursera.org/learn/competitive-data-science).
+
+Kaggle [competition](https://www.kaggle.com/c/competitive-data-science-predict-future-sales).
 
 
 ## Project structure
