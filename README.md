@@ -4,6 +4,19 @@ Final project for course: [How to Win a Data Science Competition: Learn from Top
 
 Kaggle [competition](https://www.kaggle.com/c/competitive-data-science-predict-future-sales).
 
+## Development
+
+To install dependencies:
+```bash
+conda create --name <env> --file requirements.txt
+```
+
+To download the data you should enter the environment and place the config of Kaggle according to [documentation](https://github.com/Kaggle/kaggle-api). After this run:
+```bash
+snakemake data --cores 1
+```
+This will create all data folders and download competition data into data/raw.
+
 
 ## Project structure
 
