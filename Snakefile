@@ -3,16 +3,15 @@ DATA_FILES = ['item_categories', 'items', 'sales_train', 'sample_submission', 's
 rule data:
     input:
     output:
-        expand('data/raw/{filename}.csv', filename=DATA_FILES)
+        expand('data/raw/{filename}.csv', filename=DATA_FILES), 'data/external/num_residents.csv'
     shell:
         """ 
-        mkdir data
-        mkdir data/raw
-        mkdir data/external
-        mkdir data/interim
-        mkdir data/processed
-        cd data/raw
-        kaggle competitions download -c competitive-data-science-predict-future-sales
-        unzip competitive-data-science-predict-future-sales.zip
-        rm competitive-data-science-predict-future-sales.zip
+        mkdir -p data/external
+        mkdir -p data/interim
+        mkdir -p data/processed
+        mkdir -p data/raw
+        kaggle competitions download -c competitive-data-science-predict-future-sales -p data/raw
+        unzip data/raw/* -d data/raw
+        rm data/raw/competitive-data-science-predict-future-sales.zip
+        kaggle datasets download dmitrybunin/predict-future-sales-num-residents -p data/external --unzip
         """
