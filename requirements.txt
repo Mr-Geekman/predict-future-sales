@@ -17,7 +17,7 @@ brotli=1.0.7=he1b5a44_1004
 brotlipy=0.7.0=py38h1e0a361_1000
 bzip2=1.0.8=h516909a_2
 c-ares=1.16.1=h516909a_0
-ca-certificates=2020.6.24=0
+ca-certificates=2020.7.22=0
 catboost=0.24=py38h32f6830_0
 certifi=2020.6.20=py38h32f6830_0
 cffi=1.14.1=py38he30daa8_0
@@ -41,6 +41,7 @@ freetype=2.10.2=he06d7ca_0
 giflib=5.2.1=h516909a_2
 gitdb=4.0.5=pypi_0
 gitpython=3.1.7=pypi_0
+hdf5=1.10.6=nompi_h3c11f04_101
 holidays=0.10.3=pyh9f0ad1d_0
 icu=67.1=he1b5a44_0
 idna=2.10=pyh9f0ad1d_0
@@ -109,6 +110,7 @@ matplotlib=3.3.0=1
 matplotlib-base=3.3.0=py38h91b0d89_1
 mccabe=0.6.1=pypi_0
 mistune=0.8.4=py38h1e0a361_1001
+mock=4.0.2=py38h32f6830_0
 nb_conda=2.2.1=py38_2
 nb_conda_kernels=2.2.4=py38h32f6830_0
 nbconvert=5.6.1=py38h32f6830_1
@@ -116,6 +118,7 @@ nbformat=5.0.7=py_0
 ncurses=6.2=he6710b0_1
 networkx=2.4=py_1
 notebook=6.1.1=py38h32f6830_0
+numexpr=2.7.1=py38hcb8c335_1
 numpy=1.19.1=py38h8854b6b_0
 olefile=0.46=py_0
 openjpeg=2.3.1=h981e76c_3
@@ -144,6 +147,7 @@ pyopenssl=19.1.0=py_1
 pyparsing=2.4.7=pyh9f0ad1d_0
 pyrsistent=0.16.0=py38h1e0a361_0
 pysocks=1.7.1=py38h32f6830_1
+pytables=3.6.1=py38h1b207d3_2
 python=3.8.5=hcff3b4d_0
 python-dateutil=2.8.1=py_0
 python-slugify=4.0.1=pyh9f0ad1d_0
