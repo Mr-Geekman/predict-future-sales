@@ -49,6 +49,8 @@ This will create all data folders and download competition data into data/raw.
     └── src                <- Source code for use in this project.
         ├── __init__.py    <- Makes src a Python module
         │
+        ├── utils          <- Useful functions for all project
+        │
         ├── data           <- Scripts to download or generate data
         │   └── make_dataset.py
         │
