@@ -10,8 +10,7 @@ class TimeSeriesGroupSplit(BaseCrossValidator):
 
     Provides train/test indices to split time series data samples
     that are observed at fixed time intervals, in train/test sets.
-    In each split, test indices must be higher than before, and thus shuffling
-    in cross validator is inappropriate.
+    In each split, test group value must be higher than before.
     In comparison to TimeSeriesSplit one group goes to train or test
     at the same time. Group here is a time and we want for many time series
     to be splitted by this group.
