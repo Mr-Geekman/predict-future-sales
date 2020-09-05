@@ -17,7 +17,7 @@ class TimeSeriesGroupSplit(BaseCrossValidator):
 
     :param n_splits: int, default=5
     """
-    def __init__(self, n_splits=5):
+    def __init__(self, n_splits=5, max_train_size=None):
         if not isinstance(n_splits, numbers.Integral):
             raise ValueError('The number of folds must be of Integral type. '
                              '%s of type %s was passed.'
@@ -30,6 +30,7 @@ class TimeSeriesGroupSplit(BaseCrossValidator):
                 " train/test split by setting n_splits=2 or more,"
                 " got n_splits={0}.".format(n_splits))
         self.n_splits = n_splits
+        self.max_train_size = max_train_size
 
     def split(self, X, y=None, groups=None):
         """Generate indices to split data into training and test set.
@@ -54,6 +55,7 @@ class TimeSeriesGroupSplit(BaseCrossValidator):
         groups = check_array(groups, ensure_2d=False, dtype=None)
 
         unique_groups, groups = np.unique(groups, return_inverse=True)
+        n_samples_per_group = np.bincount(groups)
         n_groups = len(unique_groups)
         n_samples = _num_samples(X)
         n_splits = self.n_splits
@@ -71,13 +73,28 @@ class TimeSeriesGroupSplit(BaseCrossValidator):
         for test_start in test_starts:
             # here we already have groups after inverse operation
             # and don't need to use unique_group
-            yield (
-                np.where(indices[groups < test_start]),
-                np.where(indices[(groups >= test_start)
-                                 & (groups < test_start + test_size)])
-            )
+            if self.max_train_size:
+                # find number of group for start not to overflow train size
+                sizes = n_samples_per_group[:test_start][::-1].cumsum()
+                appropriate_indices = np.where(sizes <= self.max_train_size)[0]
+                if appropriate_indices.size == 0:
+                    train_start = max(test_start - 1, 0)
+                else:
+                    train_start = test_start - appropriate_indices.max() - 1
+                yield (
+                    indices[(groups < test_start) & (groups >= train_start)],
+                    indices[(groups >= test_start)
+                            & (groups < test_start + test_size)]
+                )
+            else:
+                print(test_start, test_start + test_size)
+                yield (
+                    indices[groups < test_start],
+                    indices[(groups >= test_start) 
+                            & (groups < test_start + test_size)]
+                )
 
-    def get_n_splits(self):
+    def get_n_splits(self, X=None, y=None, groups=None):
         """Returns the number of splitting iterations in the cross-validator.
 
         :returns: the number of splitting iterations in the cross-validator.
