@@ -4,6 +4,37 @@ Final project for course: [How to Win a Data Science Competition: Learn from Top
 
 Kaggle [competition](https://www.kaggle.com/c/competitive-data-science-predict-future-sales).
 
+Best result public/private: $0.995356$/$0.995798$.
+
+## To reviewers
+
+### Running order
+
+In order to get my final submission:
+1. 2.0-db-creating-dataset.ipynb
+2. 1.0-db-EDA.ipynb
+3. 4.0-db-text-features.ipynb
+4. 5.0-db-lgb.ipynb
+5. 7.0-db-ridge.ipynb
+6. 8.0-db-stacking.ipynb
+
+Some comments:
+* The first notebook you should run have number of two in logical sense. We start solving task with investigation. In notebook 1 I also explore some results of notebook 2.
+* Baseline model is not needed to create final solution.
+* XGBoost model didn't contribute to final stacking because of too long computations.
+* You can also read src files, class `TimeSeriesGroupSplit` helped me a lot.
+
+### Reading order
+
+In order to understand the logic:
+1. 1.0-db-EDA.ipynb (before train exploration)
+2. 2.0-db-creating-dataset.ipynb
+3. 1.0-db-EDA.ipynb (after train exploration)
+4. 4.0-db-text-features.ipynb
+5. 5.0-db-lgb.ipynb
+6. 7.0-db-ridge.ipynb
+7. 8.0-db-stacking.ipynb
+
 ## Development
 
 To install dependencies:
@@ -49,19 +80,4 @@ This will create all data folders and download competition data into data/raw.
     └── src                <- Source code for use in this project.
         ├── __init__.py    <- Makes src a Python module
         │
-        ├── utils          <- Useful functions and classes for all project
-        │
-        ├── data           <- Scripts to download or generate data
-        │   └── make_dataset.py
-        │
-        ├── features       <- Scripts to turn raw data into features for modeling
-        │   └── build_features.py
-        │
-        ├── models         <- Scripts to train models and then use trained models to make
-        │   │                 predictions
-        │   ├── predict_model.py
-        │   └── train_model.py
-        │
-        └── visualization  <- Scripts to create exploratory and results oriented visualizations
-            └── visualize.py
-     
+        └──utils          <- Useful functions and classes for all project
