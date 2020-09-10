@@ -87,7 +87,6 @@ class TimeSeriesGroupSplit(BaseCrossValidator):
                             & (groups < test_start + test_size)]
                 )
             else:
-                print(test_start, test_start + test_size)
                 yield (
                     indices[groups < test_start],
                     indices[(groups >= test_start) 
