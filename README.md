@@ -6,7 +6,9 @@ Kaggle [competition](https://www.kaggle.com/c/competitive-data-science-predict-f
 
 ## To reviewers
 
-Best public result: $0.969141$, best private result: $0.975202$. The biggest problem is correlation between LB and validation. My validation was too optimistic. May be there are problems with target leakage in my mean encoded features.
+Best public result: 0.969141, best private result: 0.975202. 
+
+The biggest problem is correlation between LB and validation. My validation was too optimistic. May be there are problems with target leakage in my mean encoded features.
 
 ### Running order
 
